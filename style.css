@@ -1,0 +1,84 @@
+/* $CHEF Study — tema oscuro de cocina */
+:root {
+  --bg: #1b1714;        /* hierro fundido */
+  --card: #2a231e;      /* tabla de madera oscura */
+  --line: #3d332b;
+  --text: #f4ece2;      /* harina */
+  --muted: #b9aa98;
+  --accent: #e8913a;    /* llama */
+  --ok: #7cc47f;        /* albahaca */
+  --bad: #e66a5c;       /* tomate */
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+#app { max-width: 640px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 26px; margin: 8px 0 16px; }
+h2 { font-size: 20px; margin: 20px 0 8px; }
+p { margin: 0 0 12px; }
+.muted { color: var(--muted); }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 0 0 12px;
+}
+button, .btn {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0 0 10px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #1b1714; text-align: center; }
+button:disabled { opacity: 0.5; cursor: default; }
+button.back { width: auto; display: inline-block; background: none; border: none; color: var(--accent); padding-left: 0; }
+.ok { color: var(--ok); }
+.bad { color: var(--bad); }
+button.selected { border-color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+input[type=text], input[type=number], select {
+  width: 100%; min-height: 44px; margin: 0 0 10px; padding: 8px 12px;
+  font: inherit; color: var(--text); background: var(--card);
+  border: 1px solid var(--line); border-radius: 12px;
+}
+label.match { display: block; }
+.prompt { font-size: 19px; font-weight: 600; }
+.pic { font-size: 72px; line-height: 1.2; text-align: center; margin: 8px 0; }
+.pic svg { width: 120px; height: 120px; }
+.word { font-size: 28px; font-weight: 700; text-align: center; }
+.ratings { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ratings button { margin: 0; text-align: center; }
+textarea {
+  width: 100%; margin: 0 0 10px; padding: 10px 12px;
+  font: inherit; color: var(--text); background: var(--card);
+  border: 1px solid var(--line); border-radius: 12px; resize: vertical;
+}
+.glossed { text-decoration: underline dotted var(--accent); text-underline-offset: 3px; cursor: pointer; }
+.timer { font-size: 40px; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums; margin: 8px 0; }
+.timer.sticky { position: sticky; top: 0; z-index: 2; background: var(--bg); margin: 0 -16px; padding: 4px 0; border-bottom: 1px solid var(--line); }
+.letters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0 0 12px; }
+.letters button { margin: 0; text-align: center; font-size: 26px; }
+.glossed-line { cursor: pointer; }
+label.check { display: flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 8px; }
+label.check input[type=checkbox] { width: 24px; height: 24px; margin: 0; flex: none; }
+label.file { position: relative; display: block; }
+label.file input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+[data-gloss] { position: sticky; top: 0; z-index: 2; }   /* read: la glosa queda a la vista mientras se lee */
+.bar { height: 8px; margin: -4px 0 16px; background: var(--line); border-radius: 4px; overflow: hidden; }   /* T048 */
+.bar > span { display: block; height: 100%; background: var(--accent); }
